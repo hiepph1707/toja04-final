@@ -29,7 +29,7 @@ pipeline {
         stage('Push') {
             agent {label 'master'}
             steps {
-                sh './jenkins/push/push.sh'
+                sh './jenkins/push/push.sh $APP'
             }
         }
 

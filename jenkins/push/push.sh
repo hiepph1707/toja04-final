@@ -4,11 +4,23 @@ echo "********************"
 echo "** Pushing image ***"
 echo "********************"
 
-IMAGE="nodejs-project"
-
 echo "** Logging in ***"
 docker login -u hiepph1707 -p $PASS
-echo "*** Tagging image ***"
-docker tag $IMAGE:$DEPLOY_TAG hiepph1707/$IMAGE:$DEPLOY_TAG
-echo "*** Pushing image ***"
-docker push hiepph1707/$IMAGE:$DEPLOY_TAG
+
+if [ $1 == "python" ]
+then
+    echo "*** Tagging image ***"
+    docker tag ${IMAGE_PYTHON}:${IMAGE_TAG} hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    docker push hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+elif [ $1 == "nodejs" ]
+then
+    echo "*** Tagging image ***"
+    docker tag ${IMAGE_NODE}:${IMAGE_TAG} hiepph1707/${IMAGE_NODE}:${IMAGE_TAG}
+    docker push hiepph1707/${IMAGE_NODE}:${IMAGE_TAG}
+else
+    echo "*** Tagging image ***"
+    docker tag ${IMAGE_PYTHON}:${IMAGE_TAG} hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    docker tag ${IMAGE_NODE}:${IMAGE_TAG} hiepph1707/${IMAGE_NODE}:${IMAGE_TAG}
+    docker push hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    docker push hiepph1707/${IMAGE_NODE}:${IMAGE_TAG}
+fi

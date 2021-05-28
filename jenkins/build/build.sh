@@ -16,7 +16,8 @@ then
     cd jenkins/build/ && /usr/local/bin/docker-compose -f docker-compose-nodejs.yml build #--no-cache
 else
     cp -ar {python,nodejs} jenkins/build/
-    
+    cd jenkins/build/ && /usr/local/bin/docker-compose -f docker-compose-all.yml build #--no-cache
+fi
 
 
 
