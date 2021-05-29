@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nodejs:
+  python:
     image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
     container_name: python-app
     ports:
