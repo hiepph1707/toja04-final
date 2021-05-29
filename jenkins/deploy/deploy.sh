@@ -23,7 +23,7 @@ then
     docker run -d --name $NODEJS_CT_NAME -e "HOSTNAME=$(hostname -f)" -p 3000:3000 ${IMAGE_NODE}:${IMAGE_TAG}
 else
     
-    if [ $(docker rm -f $NODEJS_CT_NAME) || $(docker rm -f $PYTHON_CT_NAME) ]
+    if [ $(docker ps -aq --filter name=$PYTHON_CT_NAME) || $(docker ps -aq --filter name=$NODEJS_CT_NAME) ]
     then
         docker rm -f $NODEJS_CT_NAME && docker rm -f $PYTHON_CT_NAME
     fi
