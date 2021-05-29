@@ -3,7 +3,7 @@ services:
   nodejs:
     image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
     environment:
-      - HOSTNAME=`hostname`
+      - HOSTNAME=$(`hostname`)
     container_name: python-app
     ports:
       - 5000:5000
@@ -12,10 +12,10 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
   python:
-    image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    image: hiepph1707/${IMAGE_NODE}:${IMAGE_TAG}
     environment:
-      - HOSTNAME=`hostname`
-    container_name: python-app
+      - HOSTNAME=$(`hostname`)
+    container_name: nodejs-app
     ports:
       - 5000:5000
     restart: unless-stopped

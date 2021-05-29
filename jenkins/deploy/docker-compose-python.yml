@@ -3,7 +3,7 @@ services:
   python:
     image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
     environment:
-      - HOSTNAME=`hostname`
+      - HOSTNAME=$(hostname -f)
     container_name: python-app
     ports:
       - 5000:5000
