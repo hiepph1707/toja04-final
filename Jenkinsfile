@@ -7,7 +7,7 @@ pipeline {
         PASS = credentials('registry-pass')
         IMAGE_PYTHON = 'my-python'
         IMAGE_NODE = 'my-nodejs'
-        IMAGE_TAG = 'latest' 
+        IMAGE_TAG = "${BUILD_ID}" 
     }
     
     parameters {
