@@ -32,5 +32,6 @@ then
 else
     docker login -u hiepph1707 -p $PASS
     docker run -d --name $NODEJS_CT_NAME -e "HOSTNAME=$(hostname -f)" -p 3000:3000 ${IMAGE_NODE}:${IMAGE_TAG}
+    docker login -u hiepph1707 -p $PASS
     docker run -d --name $PYTHON_CT_NAME -e "HOSTNAME=$(hostname -f)" -p 5000:5000 ${IMAGE_PYTHON}:${IMAGE_TAG} 
 fi
