@@ -20,7 +20,7 @@ pipeline {
             agent {label 'master'}
             steps {
                 sh '''
-                    bash ./jenkins/build/build.sh $APP
+                    ./jenkins/build/build.sh $APP
                 '''
             }
 
@@ -29,21 +29,21 @@ pipeline {
         stage('Push') {
             agent {label 'master'}
             steps {
-                sh 'bash ./jenkins/push/push.sh $APP'
+                sh './jenkins/push/push.sh $APP'
             }
         }
 
         stage('Deploy') {
-            agent {label 'node2'}
+            agent {label 'node235d88'}
             steps {
-                sh 'bash ./jenkins/deploy/deploy.sh $APP'
+                sh './jenkins/deploy/deploy.sh $APP'
             }
         }
     }
     
     post {
         always {
-            rocketSend "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} [${currentBuild.currentResult}] (<${env.BUILD_URL}|Open>)"
+            emailext attachLog: true, body: """<p>Check console output at ${env.BUILD_URL} to view the results.:</p>""", to: '$DEFAULT_RECIPIENTS', subject: """${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} [${currentBuild.currentResult}]"""
         }
     }
 }
