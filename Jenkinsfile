@@ -34,7 +34,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            agent {label 'node235d88'}
+            agent {label 'node03'}
             steps {
                 sh '/usr/bin/sh ./jenkins/deploy/deploy.sh $APP'
             }
