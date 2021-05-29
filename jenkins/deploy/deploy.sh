@@ -4,7 +4,7 @@ echo "****************************"
 echo "** Deploy application ***"
 echo "****************************"
 
-docker login -u hiepph1707 -p $PASS
+/usr/bin/docker login -u hiepph1707 -p $PASS
 if [ $1 == "python" ]
 then
     cd jenkins/deploy/ && /usr/local/bin/docker-compose -f docker-compose-python.yml up -d
