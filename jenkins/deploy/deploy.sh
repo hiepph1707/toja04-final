@@ -18,11 +18,12 @@ then
     docker rm -f $NODEJS_CT_NAME
 fi
 
-# Login to Docekr registry
+# Login to Docker registry
 docker login -u hiepph1707 -p $PASS
 
 if [ $1 == "python" ]
 then
+    docker login -u hiepph1707 -p $PASS
     docker run -d --name $PYTHON_CT_NAME -e "HOSTNAME=$(hostname -f)" -p 5000:5000 hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
 elif [ $1 == "nodejs" ]
 then
