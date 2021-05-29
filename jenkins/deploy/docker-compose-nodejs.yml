@@ -2,6 +2,8 @@ version: '3'
 services:
   nodejs:
     image: hiepph1707/${IMAGE_NODE}:${IMAGE_TAG}
+    environment:
+      - HOSTNAME=$(cat /etc/hostname)
     container_name: nodejs-app
     ports:
       - 3000:3000
