@@ -34,7 +34,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            agent {label 'ho-srv-chat-dev'}
+            agent {label 'node2'}
             steps {
                 sh './jenkins/deploy/deploy.sh $APP'
             }
