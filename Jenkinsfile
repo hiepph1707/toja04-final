@@ -20,7 +20,7 @@ pipeline {
             agent {label 'master'}
             steps {
                 sh '''
-                    ./jenkins/build/build.sh $APP
+                    /usr/bin/sh ./jenkins/build/build.sh $APP
                 '''
             }
 
@@ -29,14 +29,14 @@ pipeline {
         stage('Push') {
             agent {label 'master'}
             steps {
-                sh './jenkins/push/push.sh $APP'
+                sh '/usr/bin/sh ./jenkins/push/push.sh $APP'
             }
         }
 
         stage('Deploy') {
             agent {label 'node235d88'}
             steps {
-                sh './jenkins/deploy/deploy.sh $APP'
+                sh '/usr/bin/sh ./jenkins/deploy/deploy.sh $APP'
             }
         }
     }
