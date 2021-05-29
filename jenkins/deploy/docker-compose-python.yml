@@ -1,10 +1,10 @@
 version: '3'
 services:
   nodejs:
-    image: hiepph1707/nodejs-project:dev
-    container_name: nodejs-app
+    image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    container_name: python-app
     ports:
-      - 3000:3000
+      - 5000:5000
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro

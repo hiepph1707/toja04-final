@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nodejs:
+    image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    container_name: python-app
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
+  python:
+    image: hiepph1707/${IMAGE_PYTHON}:${IMAGE_TAG}
+    container_name: python-app
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+    volumes:
+          - /etc/localtime:/etc/localtime:ro
+
+  
