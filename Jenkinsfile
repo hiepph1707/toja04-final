@@ -5,6 +5,7 @@ pipeline {
     
     environment {
         PASS = credentials('registry-pass')
+        USER = credentials('registry-user')
         IMAGE_PYTHON = 'my-python'
         IMAGE_NODE = 'my-nodejs'
         IMAGE_TAG = 'latest' 

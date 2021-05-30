@@ -17,7 +17,7 @@ echo "** Deploy application ***"
 echo "****************************"
 
 # Login to Docker registry
-docker login -u hiepph1707 -p $PASS
+docker login -u $USER -p $PASS
 
 if [ $1 == "python" ]
 then
