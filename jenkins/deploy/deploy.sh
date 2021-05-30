@@ -3,6 +3,7 @@
 PYTHON_CT_NAME='python-app'
 NODEJS_CT_NAME='nodejs-app'
 
+# Remove old python container
 removeOldContainer () {
     echo "Remove old container"
     if [ $(docker ps -aq --filter name=$1) ]
